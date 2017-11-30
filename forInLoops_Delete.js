@@ -33,6 +33,11 @@
 
 function showValues( obj ) {
   // CODE HERE
+  let test = '';
+  for(var i in obj){
+    test += obj[i]
+  }
+  return test;
 }
 
 
@@ -43,6 +48,15 @@ function showValues( obj ) {
 
 // CODE HERE
 
+function greaterThan10(obj){
+  for(var key in obj){
+    if(obj[key] > 10){
+      obj[key] = 0;
+    } 
+  }
+  return obj;
+}
+
 
 
 // ========================
@@ -52,6 +66,13 @@ function showValues( obj ) {
 
 // CODE HERE
 
+function double(obj){
+  for(var key in obj){
+    obj[key] *= 2;
+  }
+  return obj;
+}
+
 
 
 // ========================
@@ -60,6 +81,18 @@ function showValues( obj ) {
 // Write a function called secrets that will take in an object. Create an empty string variable. Write a for in loop that loops over the object. If the property name starts with an 'sh', concatenate the value to the string variable. By the end of the for in loop, you should have a sentence, return that sentence.
 
 // CODE HERE
+
+function secrets(obj){
+  var str = "";
+  for(var key in obj){
+    if(key.includes("sh")){
+      str += obj[key];
+    }
+  }
+  return str;
+}
+
+
 
 
 // ========================
@@ -86,6 +119,15 @@ function showValues( obj ) {
 
 // CODE HERE
 
+function removePassword(obj){
+  for(var key in obj){
+    if(key === "password"){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
+
 
 
 // ========================
@@ -102,6 +144,12 @@ var deleteTheBigNumbers = {
 
 // CODE HERE
 
+for(var i in deleteTheBigNumbers){
+  if(deleteTheBigNumbers[i] > 100){
+    delete deleteTheBigNumbers[i];
+  }
+}
+
 
 // ========================
 
@@ -110,7 +158,14 @@ var deleteTheBigNumbers = {
 
 // CODE HERE
 
-
+function startsWithK(obj){
+  for(var i in obj){
+    if(i[0] === "k"){
+      delete obj[i];
+    }
+  }
+  return obj;
+}
 
 // ========================
 
@@ -119,3 +174,13 @@ var deleteTheBigNumbers = {
 // (hint: the method includes() may be of use...)
 
 // CODE HERE
+
+
+function hiddenTreasure(obj){
+  for(var i in obj){
+    if(!obj[i].includes("treasure")){
+      delete obj[i];
+    }
+  }
+  return obj;
+}

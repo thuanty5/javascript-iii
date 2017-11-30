@@ -38,7 +38,17 @@ var employees = [{
 
 // Code here
 
-
+function employeeUpdater(){
+  for(var i=0; i<employees.length; i++){
+    if(employees[i].firstName === "Lorie"){
+      employees[i].department = "HR";
+    }
+    if(employees[i].firstName === "Theo"){
+      delete employees[i];
+    }
+  }
+  return employees;
+}
 
 
 
@@ -56,10 +66,19 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 // Code here
 
-
-
-
-
+function removeDuplicates(){
+  var accident = workplaceAccidents;
+  for(var i=0; i<accident.length; i++){
+    for(var j=accident.length-1; j>i; j--){
+      // console.log("I value: " + accident[i] + " I index: " + i + " - J value: " + accident[j] + " J index: " + j);
+      if(accident[i] === accident[j]){
+        accident.splice(j, 1);
+        // console.log("Remove: " + accident[i]);
+      }
+    }
+  }
+  return accident;
+}
 
 
 
@@ -69,13 +88,16 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 var cat = {
   name: 'Fluffy',
-  catFriends: [{
+  catFriends: [
+    {
     name: 'Grumpy',
     activities: ['be grumpy', 'eat food']
-  }, {
+  }, 
+  {
     name: 'Lazy Bones',
     activities: ['sleep', 'pre-sleep naps']
-    }]
+    }
+  ]
 }
 
 // Fluffy has two friends, Grumpy and Lazy Bones. 
@@ -84,8 +106,8 @@ var cat = {
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name ;
 
 
 
@@ -124,7 +146,12 @@ var myCar = {
 
 // Code here
 
-
+function recordCleaner(){
+  for(var i of myCar.accidents){
+    i.atFaultForAccident = false;
+  }
+  return myCar;
+}
 
 
 
@@ -143,6 +170,17 @@ var myCar = {
 
 var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
-
-
+function looper(){
+  for(var i in numsArr){
+    for(var j in numsArr[i]){
+      if(numsArr[i][j]%2!==0){
+        numsArr[i][j] ="odd";
+      }else{
+        
+        numsArr[i][j] ="even";
+      }
+    }
+  }
+  return numsArr;
+}
 
